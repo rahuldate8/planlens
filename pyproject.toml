@@ -1,0 +1,39 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "planlens"
+version = "0.1.0"
+description = "Find the bottleneck in a PostgreSQL EXPLAIN plan, with rule-based checks and optional AI explanations."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [{ name = "Rahul Date" }]
+keywords = ["postgresql", "explain", "query-plan", "performance", "llm"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Topic :: Database",
+    "Environment :: Console",
+]
+dependencies = []
+
+[project.optional-dependencies]
+ai = ["anthropic>=0.70"]
+dev = ["pytest>=8", "ruff>=0.6"]
+
+[project.scripts]
+planlens = "planlens.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/planlens"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]

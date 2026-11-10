@@ -1,0 +1,17 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Seq Scan",
+      "Parallel Aware": false,
+      "Async Capable": false,
+      "Relation Name": "claims",
+      "Alias": "claims",
+      "Startup Cost": 0.00,
+      "Total Cost": 13323.00,
+      "Plan Rows": 25,
+      "Plan Width": 74,
+      "Disabled": false,
+      "Filter": "(policy_id = 42)"
+    }
+  }
+]
